@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Substack - start a paid newsletter</title>
+</head>
+<body>
+    <nav>
+        <ul style="list-style-type: none;">
+            <li><a href="{% url 'homepage' %}"><img src="{% static 'substacklogo.png' %}"></a></li>
+            <li>Resources</li>
+            <li>Writers</li>
+            <li>Readers</li>
+            {% if user.is_authenticated %}
+                <form style="display: inline" action="{% url 'accounts:info'%}" method="get">
+                    <button>Account Management</button>
+                </form>
+                <form style="display: inline" action="{% url 'accounts:logout'%}" method="get">
+                <button>Logout</button>
+                </form>
+            {% else %}
+        
+                <form style="display: inline" action="{% url 'accounts:create' %}" method="get">
+                    <button>Start Writing</button>
+                </form>
+                <form style="display: inline" action="{% url 'accounts:login' %}" method="get">
+                    <button>Sign in</button>
+                </form>
+            
+            {% endif %}
+
+        </ul>
+    </nav>
+<div>
+    <h6 class='front-page-big-text'>The home for great writing.</h6>
+    <p> We believe that what you read matters and great writing is valuable. We’re building a future where writers can flourish by being paid directly by readers.</p>
+
+</div>
+</body>
+</html>

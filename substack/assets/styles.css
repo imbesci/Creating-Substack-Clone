@@ -1,0 +1,16 @@
+* {
+    font-family: Cahuenga;
+    background-color: rgb(196, 202, 219);
+}
+
+nav ul li {
+    display: inline-block;
+    background-color: rgb(206, 186, 150);
+    color: purple;
+}
+
+.front-page-big-text {
+    font-size: 68px;
+    text-align: center;
+    font-weight: 400;
+}
